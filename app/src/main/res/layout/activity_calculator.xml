@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CalculatorActivity">
+    <TextView
+        android:paddingRight="5dp"
+        android:gravity="bottom|end"
+        android:id="@+id/tvDisplay"
+        android:textSize="70sp"
+        android:inputType="text"
+        android:lines="1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_215"
+        android:paddingEnd="5dp"
+        tools:ignore="RtlSymmetry,TextViewEdits" />
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="fragment.Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
