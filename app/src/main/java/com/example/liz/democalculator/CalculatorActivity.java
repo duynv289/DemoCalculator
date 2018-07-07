@@ -167,10 +167,12 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 tvDisplay.append(".");
                 break;
             case R.id.btnPercent :
-
+                double result = Double.parseDouble(tvDisplay.getText().toString());
+                tvDisplay.setText(result*100+"%");
                 break;
             case R.id.btnAdd :
-
+                result = Double.parseDouble(tvDisplay.getText().toString());
+                tvDisplay.setText(String.valueOf(-result));
                 break;
             case R.id.btnClear :
                 tvDisplay.setText("");
@@ -199,12 +201,10 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void sharedPreferences() {
-
-
         SharedPreferences sharedPreferences = getSharedPreferences("MyShare",MODE_PRIVATE);
         SharedPreferences.Editor editor     = sharedPreferences.edit();
         editor.putString("result",tvDisplay.getText().toString());
-        boolean commit = editor.commit();
+        editor.commit();
     }
 }
 
