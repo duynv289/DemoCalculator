@@ -20,11 +20,11 @@ import java.text.DecimalFormat;
 
 public class Fragment extends android.app.Fragment implements View.OnClickListener{
 
-    private Button btnZero,btnOne,btnTwo,btnThree,btnFour,btnFive,btnSix,btnSeven,btnEight,btnNine;
-    private Button btnClear,btnAdd,btnPercent,btnDivide,btnPlus,btnSub,btnMulti,btnResult,btnPoint;
-    private TextView tvDisplay;
+    private Button button_0, button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9;
+    private Button button_clear, button_inveser, button_percent, button_divide, button_plus, button_subtract, button_multiply, button_result, button_point;
+    private TextView text_result;
     private double number1;
-    boolean plus,sub,multi,divide;
+    boolean plus, subtract, multiply,divide;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -39,148 +39,149 @@ public class Fragment extends android.app.Fragment implements View.OnClickListen
 
     }
     private void initView() {
-        btnZero     = getActivity().findViewById(R.id.btnZero);
-        btnOne      = getActivity().findViewById(R.id.btnOne);
-        btnTwo      = getActivity().findViewById(R.id.btnTwo);
-        btnThree    = getActivity().findViewById(R.id.btnThree);
-        btnFour     = getActivity().findViewById(R.id.btnFour);
-        btnFive     = getActivity().findViewById(R.id.btnFive);
-        btnSix      = getActivity().findViewById(R.id.btnSix);
-        btnSeven    = getActivity().findViewById(R.id.btnSeven);
-        btnEight    = getActivity().findViewById(R.id.btnEight);
-        btnNine     = getActivity().findViewById(R.id.btnNine);
+        button_0 = getActivity().findViewById(R.id.button_0);
+        button_1 = getActivity().findViewById(R.id.button_1);
+        button_2 = getActivity().findViewById(R.id.button_2);
+        button_3 = getActivity().findViewById(R.id.button_3);
+        button_4 = getActivity().findViewById(R.id.button_4);
+        button_5 = getActivity().findViewById(R.id.button_5);
+        button_6 = getActivity().findViewById(R.id.button_6);
+        button_7 = getActivity().findViewById(R.id.button_7);
+        button_8 = getActivity().findViewById(R.id.button_8);
+        button_9 = getActivity().findViewById(R.id.button_9);
 
-        btnClear    = getActivity().findViewById(R.id.btnClear);
-        btnAdd      = getActivity().findViewById(R.id.btnAdd);
-        btnPercent  = getActivity().findViewById(R.id.btnPercent);
-        btnDivide   = getActivity().findViewById(R.id.btnDivide);
-        btnMulti    = getActivity().findViewById(R.id.btnMulti);
-        btnPlus     = getActivity().findViewById(R.id.btnPlus);
-        btnSub      = getActivity().findViewById(R.id.btnSub);
-        btnPoint    = getActivity().findViewById(R.id.btnPoint);
-        btnResult   = getActivity().findViewById(R.id.btnResult);
+        button_clear = getActivity().findViewById(R.id.button_clear);
+        button_inveser = getActivity().findViewById(R.id.button_insever);
+        button_percent = getActivity().findViewById(R.id.button_percent);
+        button_point = getActivity().findViewById(R.id.button_point);
+        button_result = getActivity().findViewById(R.id.button_result);
 
-        tvDisplay  =  getActivity().findViewById(R.id.tvDisplay);
+        button_divide = getActivity().findViewById(R.id.button_divide);
+        button_multiply = getActivity().findViewById(R.id.button_multiply);
+        button_plus = getActivity().findViewById(R.id.button_plus);
+        button_subtract = getActivity().findViewById(R.id.button_subtract);
+
+        text_result =  getActivity().findViewById(R.id.text_result);
 
     }
     public void onClickView(){
-        btnZero.setOnClickListener(this);
-        btnOne.setOnClickListener(this);
-        btnTwo.setOnClickListener(this);
-        btnThree.setOnClickListener(this);
-        btnFour.setOnClickListener(this);
-        btnFive.setOnClickListener(this);
-        btnSix.setOnClickListener(this);
-        btnSeven.setOnClickListener(this);
-        btnEight.setOnClickListener(this);
-        btnNine.setOnClickListener(this);
+        button_0.setOnClickListener(this);
+        button_1.setOnClickListener(this);
+        button_2.setOnClickListener(this);
+        button_3.setOnClickListener(this);
+        button_4.setOnClickListener(this);
+        button_5.setOnClickListener(this);
+        button_6.setOnClickListener(this);
+        button_7.setOnClickListener(this);
+        button_8.setOnClickListener(this);
+        button_9.setOnClickListener(this);
 
-        btnPlus.setOnClickListener(this);
-        btnSub.setOnClickListener(this);
-        btnDivide.setOnClickListener(this);
-        btnMulti.setOnClickListener(this);
+        button_plus.setOnClickListener(this);
+        button_subtract.setOnClickListener(this);
+        button_divide.setOnClickListener(this);
+        button_multiply.setOnClickListener(this);
 
-        btnPoint.setOnClickListener(this);
-        btnPercent.setOnClickListener(this);
-        btnClear.setOnClickListener(this);
-        btnAdd.setOnClickListener(this);
-        btnResult.setOnClickListener(this);
+        button_point.setOnClickListener(this);
+        button_percent.setOnClickListener(this);
+        button_clear.setOnClickListener(this);
+        button_inveser.setOnClickListener(this);
+        button_result.setOnClickListener(this);
     }
     @SuppressLint("SetTextI18n")
-    public void onClick(View view) {
+    public void onClick(View view) throws NumberFormatException{
         switch (view.getId()){
-            case R.id.btnZero :
-                tvDisplay.append("0");
+            case R.id.button_0:
+                text_result.append("0");
                 break;
-            case R.id.btnOne :
-                tvDisplay.append("1");
+            case R.id.button_1:
+                text_result.append("1");
                 break;
-            case R.id.btnTwo :
-                tvDisplay.append("2");
+            case R.id.button_2:
+                text_result.append("2");
                 break;
-            case R.id.btnThree :
-                tvDisplay.append("3");
+            case R.id.button_3:
+                text_result.append("3");
                 break;
-            case R.id.btnFour :
-                tvDisplay.append("4");
+            case R.id.button_4:
+                text_result.append("4");
                 break;
-            case R.id.btnFive :
-                tvDisplay.append("5");
+            case R.id.button_5:
+                text_result.append("5");
                 break;
-            case R.id.btnSix :
-                tvDisplay.append("6");
+            case R.id.button_6:
+                text_result.append("6");
                 break;
-            case R.id.btnSeven :
-                tvDisplay.append("7");
+            case R.id.button_7:
+                text_result.append("7");
                 break;
-            case R.id.btnEight :
-                tvDisplay.append("8");
+            case R.id.button_8:
+                text_result.append("8");
                 break;
-            case R.id.btnNine :
-                tvDisplay.append("9");
+            case R.id.button_9:
+                text_result.append("9");
                 break;
 
-            case R.id.btnSub :
-                number1 = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.append("-");
-                sub = true;
-                tvDisplay.setText(null);
+            case R.id.button_subtract:
+                number1 = Double.parseDouble(text_result.getText().toString());
+                text_result.append("-");
+                subtract = true;
+                text_result.setText(null);
                 break;
-            case R.id.btnPlus :
-                number1 = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.append("+");
+            case R.id.button_plus:
+                number1 = Double.parseDouble(text_result.getText().toString());
+                text_result.append("+");
                 plus = true;
-                tvDisplay.setText(null);
+                text_result.setText(null);
                 break;
-            case R.id.btnMulti :
-                number1 = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.append("*");
-                multi = true;
-                tvDisplay.setText(null);
+            case R.id.button_multiply:
+                number1 = Double.parseDouble(text_result.getText().toString());
+                text_result.append("*");
+                multiply = true;
+                text_result.setText(null);
                 break;
-            case R.id.btnDivide :
-                number1 = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.append("/");
+            case R.id.button_divide:
+                number1 = Double.parseDouble(text_result.getText().toString());
+                text_result.append("/");
                 divide = true;
-                tvDisplay.setText(null);
+                text_result.setText(null);
                 break;
 
-            case R.id.btnPoint :
-                tvDisplay.append(".");
+            case R.id.button_point:
+                text_result.append(".");
                 break;
-            case R.id.btnPercent :
-                double result = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.setText(result*100+"%");
+            case R.id.button_percent:
+                double result = Double.parseDouble(text_result.getText().toString());
+                text_result.setText(result*100+"%");
                 break;
-            case R.id.btnAdd :
-                result = Double.parseDouble(tvDisplay.getText().toString());
-                tvDisplay.setText(String.valueOf(-result));
+            case R.id.button_insever:
+                result = Double.parseDouble(text_result.getText().toString());
+                text_result.setText(String.valueOf(-result));
                 break;
-            case R.id.btnClear :
-                tvDisplay.setText("");
+            case R.id.button_clear:
+                text_result.setText("");
                 break;
-            case R.id.btnResult :
+            case R.id.button_result:
                 sharedPreferences();
                 DecimalFormat df = new DecimalFormat("0.000");
                 try{
-                    double number2 = Double.parseDouble(tvDisplay.getText().toString());
+                    double number2 = Double.parseDouble(text_result.getText().toString());
                     if(plus){
-                        tvDisplay.setText(df.format(number1 + number2));
+                        text_result.setText(df.format(number1 + number2));
                         plus = false;
                     }
-                    if (sub){
-                        tvDisplay.setText(df.format(number1 - number2));
-                        sub=false;
+                    if (subtract){
+                        text_result.setText(df.format(number1 - number2));
+                        subtract =false;
                     }
-                    if (multi){
-                        tvDisplay.setText(df.format(number1* number2));
-                        multi=false;
+                    if (multiply){
+                        text_result.setText(df.format(number1* number2));
+                        multiply =false;
                     }
                     if (divide){
                         if (number2 == 0){
                             Toast.makeText(getActivity(), "error", Toast.LENGTH_SHORT).show();
                         }
-                        tvDisplay.setText(df.format(number1/ number2));
+                        text_result.setText(df.format(number1/ number2));
                         divide=false;
                     }
                 }catch (Exception e){
@@ -191,9 +192,9 @@ public class Fragment extends android.app.Fragment implements View.OnClickListen
     }
 
     private void sharedPreferences() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyShare", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor     = sharedPreferences.edit();
-        editor.putString("result",tvDisplay.getText().toString());
+        SharedPreferences PREF_Result = getActivity().getSharedPreferences("MyShare", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor     = PREF_Result.edit();
+        editor.putString("result", text_result.getText().toString());
         editor.apply();
     }
 }

@@ -7,9 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import fragment.Fragment;
+
 
 public class CalculatorActivity extends AppCompatActivity{
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +23,8 @@ public class CalculatorActivity extends AppCompatActivity{
             case R.id.mnSetting :
                 break;
             case R.id.mnHistory :
-                SharedPreferences sharedPreferences = getSharedPreferences("MyShare",MODE_PRIVATE);
-                String SPresult = sharedPreferences.getString("result","123");
+                SharedPreferences PREF_Result = getSharedPreferences("MyShare",MODE_PRIVATE);
+                String SPresult = PREF_Result.getString("result","123");
                 Toast.makeText(this, SPresult+"", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mnExit :
